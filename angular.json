@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/PorfolioPersonal/",
               "budgets": [
                 {
                   "type": "initial",
