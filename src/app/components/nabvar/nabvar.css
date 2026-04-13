@@ -1,0 +1,234 @@
+/* ESTILOS GENERALES Y FUENTES */
+* {
+  font-family: "Quicksand";
+}
+
+/* BOTON DE ACCION PRINCIPAL */
+.btn {
+  font-size: 25px;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  padding: 0.6em 1.1em;
+  color: #E1E1E1;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #E1E1E1;
+  transition: 0.5s ease;
+}
+
+.btn:hover {
+  color: hsl(220, 25%, 7%);
+  transition-delay: 0.5s;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #E1E1E1;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+}
+
+/* CONTENEDOR DE NAVEGACION */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 9997;
+}
+
+.left-button {
+  flex: 0 0 auto;
+}
+
+/* LISTA DE ENLACES */
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin-left: 40px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #E1E1E1;
+  transition: color 0.3s;
+  position: relative;
+  display: inline-block;
+}
+
+ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background-color: #E1E1E1;
+  transition: width 0.5s ease;
+}
+
+ul li a:hover::before {
+  width: 100%;
+}
+
+ul li a.active::before {
+  width: 100%;
+}
+
+/* MENU HAMBURGUESA Y TOGGLE */
+.nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger svg {
+  height: 3em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.nav-toggle:checked+.hamburger svg {
+  transform: rotate(-45deg);
+}
+
+.nav-toggle:checked+.hamburger svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* RESPONSIVE: MENU DESPLEGABLE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    margin-left: 12px;
+  }
+
+  .nav .left-button {
+    flex: 0 0 auto;
+  }
+
+  ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    z-index: 9998;
+  }
+
+  ul li {
+    margin-left: 0;
+    margin-bottom: 12px;
+  }
+
+  ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  .nav-toggle:checked~ul {
+    display: flex;
+  }
+
+  .nav ul {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 10px;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .nav ul li a {
+    display: block;
+    padding: 10px 14px;
+    color: #E1E1E1;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.12s ease;
+    position: relative;
+  }
+
+  .nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #E1E1E1;
+    transition: width 0.5s ease;
+  }
+
+  .nav ul li a:hover::before {
+    width: 100%;
+  }
+
+  .nav ul li a.active::before {
+    width: 100%;
+  }
+
+  .nav ul li:first-child a {
+    font-weight: 600;
+  }
+
+  .nav ul li+li {
+    margin-top: 6px;
+  }
+}

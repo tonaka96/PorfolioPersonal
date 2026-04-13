@@ -1,0 +1,173 @@
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+    padding-top: 5%;
+    font-family: "Atkinson Hyperlegible Next";
+}
+
+/* ESTRUCTURA DE LA SECCION */
+.about-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.about-container>h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    color: #E1E1E1;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* ESTILOS DE CADA SUBSECCION */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid hsla(220, 15%, 25%, 0.5);
+}
+
+.about-section:last-child {
+    border-bottom: none;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+    color: #E1E1E1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-header .icon {
+    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+}
+
+/* ENLACES Y EFECTOS HOVER */
+.section-link {
+    text-decoration: none;
+    color: #E1E1E1;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.section-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            hsl(190, 100%, 60%),
+            hsl(320, 100%, 60%));
+    transition: width 0.4s ease;
+}
+
+.section-link:hover {
+    color: hsl(190, 100%, 60%);
+}
+
+.section-link:hover::after {
+    width: 100%;
+}
+
+/* CUERPO DE TEXTO Y ENFASIS */
+.section-body {
+    padding-left: 3.25rem;
+}
+
+.section-body p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(225, 225, 225, 0.85);
+    margin: 0;
+}
+
+.section-body strong {
+    color: #E1E1E1;
+    font-weight: 600;
+    background: linear-gradient(90deg,
+            hsl(190, 100%, 60%),
+            hsl(280, 100%, 65%),
+            hsl(320, 100%, 60%));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ADAPTACION PARA DISPOSITIVOS MOVILES */
+@media (max-width: 768px) {
+    .about {
+        padding-top: 12%;
+    }
+
+    .about-container>h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-body {
+        padding-left: 0;
+    }
+
+    .section-body p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container>h1 {
+        font-size: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .section-header .icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem;
+    }
+}

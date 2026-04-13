@@ -1,0 +1,251 @@
+/* CONTENEDOR Y TITULOS */
+.projects {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+    padding-top: 5%;
+    font-family: "Atkinson Hyperlegible Next";
+}
+
+.projects-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.projects-container h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    color: #E1E1E1;
+}
+
+/* REJILLA DE PROYECTOS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    width: 100%;
+    justify-items: center;
+}
+
+/* SISTEMA DE TILT 3D: TRACKERS Y CANVAS */
+.container {
+    position: relative;
+    width: 320px;
+    height: 250px;
+    transition: 200ms;
+}
+
+.canvas {
+    perspective: 800px;
+    inset: 0;
+    z-index: 200;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "tr-1 tr-2 tr-3 tr-4 tr-5"
+        "tr-6 tr-7 tr-8 tr-9 tr-10"
+        "tr-11 tr-12 tr-13 tr-14 tr-15"
+        "tr-16 tr-17 tr-18 tr-19 tr-20"
+        "tr-21 tr-22 tr-23 tr-24 tr-25";
+}
+
+.tracker {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+}
+
+.tracker:hover {
+    cursor: pointer;
+}
+
+/* ESTILO DE LA TARJETA DEL REPOSITORIO */
+.repo-card {
+    position: absolute;
+    inset: 0;
+    z-index: 210;
+    background: #1e1e26;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 300ms ease-in-out;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+/* MAPEADO DE AREAS PARA EL EFECTO TILT */
+.tr-1 { grid-area: tr-1; } .tr-2 { grid-area: tr-2; } .tr-3 { grid-area: tr-3; } .tr-4 { grid-area: tr-4; } .tr-5 { grid-area: tr-5; }
+.tr-6 { grid-area: tr-6; } .tr-7 { grid-area: tr-7; } .tr-8 { grid-area: tr-8; } .tr-9 { grid-area: tr-9; } .tr-10 { grid-area: tr-10; }
+.tr-11 { grid-area: tr-11; } .tr-12 { grid-area: tr-12; } .tr-13 { grid-area: tr-13; } .tr-14 { grid-area: tr-14; } .tr-15 { grid-area: tr-15; }
+.tr-16 { grid-area: tr-16; } .tr-17 { grid-area: tr-17; } .tr-18 { grid-area: tr-18; } .tr-19 { grid-area: tr-19; } .tr-20 { grid-area: tr-20; }
+.tr-21 { grid-area: tr-21; } .tr-22 { grid-area: tr-22; } .tr-23 { grid-area: tr-23; } .tr-24 { grid-area: tr-24; } .tr-25 { grid-area: tr-25; }
+
+/* TRANSFORMACIONES DE ROTACION SEGUN TRACKER */
+.tr-1:hover ~ .repo-card { transform: rotateX(15deg) rotateY(-10deg); }
+.tr-2:hover ~ .repo-card { transform: rotateX(15deg) rotateY(-5deg); }
+.tr-3:hover ~ .repo-card { transform: rotateX(15deg) rotateY(0deg); }
+.tr-4:hover ~ .repo-card { transform: rotateX(15deg) rotateY(5deg); }
+.tr-5:hover ~ .repo-card { transform: rotateX(15deg) rotateY(10deg); }
+.tr-6:hover ~ .repo-card { transform: rotateX(7deg) rotateY(-10deg); }
+.tr-7:hover ~ .repo-card { transform: rotateX(7deg) rotateY(-5deg); }
+.tr-8:hover ~ .repo-card { transform: rotateX(7deg) rotateY(0deg); }
+.tr-9:hover ~ .repo-card { transform: rotateX(7deg) rotateY(5deg); }
+.tr-10:hover ~ .repo-card { transform: rotateX(7deg) rotateY(10deg); }
+.tr-11:hover ~ .repo-card { transform: rotateX(0deg) rotateY(-10deg); }
+.tr-12:hover ~ .repo-card { transform: rotateX(0deg) rotateY(-5deg); }
+.tr-13:hover ~ .repo-card { transform: rotateX(0deg) rotateY(0deg); }
+.tr-14:hover ~ .repo-card { transform: rotateX(0deg) rotateY(5deg); }
+.tr-15:hover ~ .repo-card { transform: rotateX(0deg) rotateY(10deg); }
+.tr-16:hover ~ .repo-card { transform: rotateX(-7deg) rotateY(-10deg); }
+.tr-17:hover ~ .repo-card { transform: rotateX(-7deg) rotateY(-5deg); }
+.tr-18:hover ~ .repo-card { transform: rotateX(-7deg) rotateY(0deg); }
+.tr-19:hover ~ .repo-card { transform: rotateX(-7deg) rotateY(5deg); }
+.tr-20:hover ~ .repo-card { transform: rotateX(-7deg) rotateY(10deg); }
+.tr-21:hover ~ .repo-card { transform: rotateX(-15deg) rotateY(-10deg); }
+.tr-22:hover ~ .repo-card { transform: rotateX(-15deg) rotateY(-5deg); }
+.tr-23:hover ~ .repo-card { transform: rotateX(-15deg) rotateY(0deg); }
+.tr-24:hover ~ .repo-card { transform: rotateX(-15deg) rotateY(5deg); }
+.tr-25:hover ~ .repo-card { transform: rotateX(-15deg) rotateY(10deg); }
+
+/* RESPLANDOR TRASERO DE LA TARJETA */
+.repo-card::before {
+    content: '';
+    background: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+    filter: blur(2rem);
+    opacity: 0%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: 300ms;
+    border-radius: 20px;
+}
+
+.container:hover .repo-card::before {
+    opacity: 20%;
+}
+
+/* ELEMENTOS INTERNOS DE LA TARJETA */
+.repo-header {
+    margin-bottom: 1rem;
+    transform: translateZ(30px);
+}
+
+.repo-lang {
+    font-size: 0.75rem;
+    background: #333;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.repo-header h3 {
+    margin: 0.5rem 0 0 0;
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.repo-body {
+    flex-grow: 1;
+    transform: translateZ(20px);
+}
+
+.description {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.repo-meta {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.repo-footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    transform: translateZ(40px);
+}
+
+/* BOTONES DE ACCION EN LA TARJETA */
+.btn-link, .btn-download {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+    pointer-events: auto;
+}
+
+.btn-link {
+    background: #333;
+    color: #fff;
+}
+
+.btn-link:hover {
+    background: #444;
+}
+
+.btn-download {
+    background: transparent;
+    color: #aaa;
+    border: 1px solid #333;
+}
+
+.btn-download:hover {
+    color: #fff;
+    border-color: #555;
+    background: #222;
+}
+
+.noselect {
+    user-select: none;
+}
+
+/* ADAPTACION PARA DISPOSITIVOS MOVILES */
+@media (max-width: 768px) {
+    .projects {
+        padding-top: 12%;
+    }
+
+    .projects-container h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+

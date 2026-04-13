@@ -1,0 +1,44 @@
+<section class="contact">
+    <div class="contact-container">
+        <h1>Contacto.</h1>
+
+        <p class="contact-description">
+            Ponte en contacto o envíame un email directamente a
+            <a href="mailto:tonifrajor@gmail.com" class="email-link">tonifrajor@gmail.com</a>
+        </p>
+
+        <form class="contact-form" action="https://formsubmit.co/tonifrajor@gmail.com" method="POST" (submit)="onSubmit($event)">
+            @if (isSent()) {
+                <div class="success-message">
+                    <p>¡Gracias! Tu mensaje ha sido enviado correctamente.</p>
+                </div>
+            }
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Nombre" required>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <textarea id="message" name="message" placeholder="Mensaje" rows="6" required></textarea>
+            </div>
+
+            <button class="button">
+                <span>Enviar mensaje</span>
+            </button>
+
+            <input type="hidden" name="_next" value="https://tonaka96.github.io/PorfolioPersonal/contact">
+            <input type="hidden" name="_captcha" value="false">
+        </form>
+
+        <a routerLink="/" class="back-home">
+            <span>Volver al inicio</span>
+            <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" width="20px">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+        </a>
+    </div>
+</section>

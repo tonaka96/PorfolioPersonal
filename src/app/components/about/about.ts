@@ -1,0 +1,14 @@
+/* IMPORTS NECESARIOS */
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+/* CONFIGURACION DEL COMPONENTE */
+@Component({
+  selector: 'app-about',
+  imports: [RouterLink],
+  templateUrl: './about.html',
+  styleUrl: './about.css',
+})
+export class About {
+
+}
