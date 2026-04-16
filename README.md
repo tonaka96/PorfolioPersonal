@@ -24,7 +24,7 @@ git commit -m "Commit"
 git push origin master
 ```
 
-Para qué tal va la subida escribir
+Para ver qué tal va la subida escribir
 
 ```bash
 git status
