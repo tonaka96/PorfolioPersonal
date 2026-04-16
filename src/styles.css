@@ -50,6 +50,12 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .circle {
+        display: none;
+    }
+}
+
 /* OCULTAR SCROLLBAR EN SECCIONES ESPECIFICAS */
 body:has(app-about, app-projects, app-contact)::-webkit-scrollbar {
     display: none;
