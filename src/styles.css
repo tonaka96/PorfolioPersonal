@@ -43,19 +43,6 @@ body {
     background-attachment: fixed;
 }
 
-/* COMPORTAMIENTO SEGUN LA RUTA ACTUAL */
-@media (min-width: 768px) {
-    body:has(app-main) {
-        overflow: hidden !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .circle {
-        display: none;
-    }
-}
-
 /* OCULTAR SCROLLBAR EN SECCIONES ESPECIFICAS */
 body:has(app-about, app-projects, app-contact)::-webkit-scrollbar {
     display: none;
@@ -73,4 +60,18 @@ body:has(app-about, app-projects, app-contact)::-webkit-scrollbar {
     left: calc(var(--circle-size) / 2 * -1);
     pointer-events: none;
     z-index: 9999;
+}
+
+/* COMPORTAMIENTO SEGUN LA RUTA ACTUAL */
+@media (min-width: 768px) {
+    body:has(app-main) {
+        overflow: hidden !important;
+    }
+}
+
+/* COMPORTAMIENTO SCRIPT MOUSE SEGUN RESOLUCION */
+@media (max-width: 768px) {
+    .circle {
+        display: none;
+    }
 }
